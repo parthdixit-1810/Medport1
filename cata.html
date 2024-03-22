@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <script src="https://js.stripe.com/v3/"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Pharmacy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 style="font-style: bold; font-size: 50px; color:rgb(37, 110, 227)">Pharmacy</h1>
+    </header>
+    <main>
+        <section id="catalog" class="grid-container">
+           
+            <div class="medicine">
+                <img src="./Vitamin- D3.png" alt="Vitamin D">
+                <h2>Vitamin D (Drisdol, Calciferol)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            <div class="medicine">
+                <img src="./Cipmox 500.png" alt="Amoxicillin">
+                <h2>Amoxicillin (Amoxil, Biomox, Polymox)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            <div class="medicine">
+                <img src="./Pasted Graphic 6.png" alt="Levothyroxine">
+                <h2>Levothyroxine (Synthroid, Euthyrox, Levoxyl, Unithroid)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            <div class="medicine">
+                <img src="./Lisinopril Tablets IP 20mg.png" alt="Lisinopril">
+                <h2>Lisinopril (Prinivil, Zestril)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price:Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="medicine">
+                <img src="./Pasted Graphic 8.png" alt="Ibuprofen">
+                <h2>Ibuprofen (Advil, Motrin)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="medicine">
+                <img src="./100 TABLETS.png" alt="Amphetamine/dextroamphetamine">
+                <h2>Amphetamine/dextroamphetamine (Adderall, Adderall XR)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="medicine">
+                <img src="./Amlodipine.png" alt="Amlodipine">
+                <h2>Amlodipine (Norvasc)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="medicine">
+                <img src="./Albuterol Sulfate HFA.png" alt="Albuterol HFA">
+                <h2>Albuterol HFA (Ventolin HFA, Proair HFA, Proventil HFA)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="medicine">
+                <img src="./TABLETS, USP.png" alt="Prednisone">
+                <h2>Prednisone (Deltasone, Rayos, Prednisone Intensol)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            <div class="medicine">
+                <img src="./Gabapentin Teva.png" alt="Gabapentin">
+                <h2>Gabapentin (Neurontin)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="medicine">
+                <img src="./Pasted Graphic 14.png" alt="Benzonatate">
+                <h2>Benzonatate (Tessalon Perles)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="medicine">
+                <img src="./Pasted Graphic 15.png" alt="Alprazolam">
+                <h2>Alprazolam (Xanax)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="medicine">
+                <img src="./Pasted Graphic 16.png" alt="Cyclobenzaprine">
+                <h2>Cyclobenzaprine (Fexmid)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="medicine">
+                <img src="./Pasted Graphic 16.png" alt="Azithromycin">
+                <h2>Azithromycin (Zithromax Z-Pak)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="medicine">
+                <img src="./Pasted Graphic 18.png" alt="Atorvastatin">
+                <h2>Atorvastatin (Lipitor)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="medicine">
+                <img src="./Pasted Graphic 19.png" alt="Cetirizine">
+                <h2>Cetirizine (Zyrtec)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="medicine">
+                <img src="./Pasted Graphic 20.png" alt="Losartan">
+                <h2>Losartan (Cozaar)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="medicine">
+                <img src="./Pasted Graphic 21.png" alt="Amoxicillin/clavulanate potassium">
+                <h2>Amoxicillin/clavulanate potassium (Augmentin)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="medicine">
+                <img src="./Cephalexin.png" alt="Cephalexin">
+                <h2>Cephalexin (Keflex)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            <div class="medicine">
+                <img src="./Pasted Graphic 23.png" alt="Metformin">
+                <h2>Metformin (Riomet)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="medicine">
+                <img src="./Pasted Graphic 24.png" alt="Metoprolol succinate ER">
+                <h2>Metoprolol succinate ER (Toprol XL)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="medicine">
+                <img src="./Pasted Graphic 25.png" alt="Hydrochlorothiazide">
+                <h2>Hydrochlorothiazide (Microzide)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="medicine">
+                <img src="./Pasted Graphic 26.png" alt="Sildenafil citrate">
+                <h2>Sildenafil citrate (Viagra, Revatio)</h2>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Price: Rs.100.00</p>
+                <input type="number" min="1" value="1">
+                <button>Add to Cart</button>
+            </div>
+
+        </section>
+        <aside id="cart">
+            <h2>Cart</h2>
+            <ul id="cart-items">
+            </ul>
+            <button id="checkout-btn">Checkout</button>
+        </aside>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

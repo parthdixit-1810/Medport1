@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical History Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            background-image: url('./v870-tang-41.jpg');
+            background-position: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 40px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: black;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button[type="submit"],
+        button[type="button"] {
+            background-color: #2996ea;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover,
+        button[type="button"]:hover {
+            background-color: #1e71dc;
+        }
+
+        .add-more {
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .remove {
+            color: #dc3545;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .fieldset-container {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .fieldset-container legend {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .fieldset-container label {
+            font-weight: bold;
+        }
+
+        .fieldset-container input[type="text"],
+        .fieldset-container input[type="number"],
+        .fieldset-container select,
+        .fieldset-container textarea {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>MEDICAL DETAILS</h1>
+    <form id="medicalForm" action="/submit-form" method="POST">
+        <fieldset class="fieldset-container">
+            <legend>Patient Information</legend>
+            <label for="patientName">Patient Name:</label>
+            <input type="text" id="patientName" name="patientName" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="1" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="height">Height (in cm):</label>
+            <input type="number" id="height" name="height" min="1" required>
+
+            <label for="weight">Weight (in kg):</label>
+            <input type="number" id="weight" name="weight" min="1" required>
+        </fieldset>
+
+        <fieldset class="fieldset-container">
+            <legend>Medical History</legend>
+            <label for="bloodPressure">Blood Pressure (last recorded):</label>
+            <input type="text" id="bloodPressure" name="bloodPressure" required>
+
+            <label for="oxygenCapacity">Oxygen Capacity (last recorded):</label>
+            <input type="text" id="oxygenCapacity" name="oxygenCapacity" required>
+
+            <label for="medicineHistory">Medicine History:</label>
+            <div id="medicineHistoryFields">
+                <div>
+                    <label for="ongoingMedicine">Ongoing Medicines:</label>
+                    <input type="text" id="ongoingMedicine" name="ongoingMedicine[]" required>
+                    <input type="number" id="ongoingMedicineDuration" name="ongoingMedicineDuration[]" min="1" placeholder="Duration (in weeks)">
+                </div>
+                <button type="button" onclick="addMedicineField('medicineHistoryFields')">Add Another Ongoing Medicine</button>
+
+                <div style="margin-top: 20px;">
+                    <label for="previousMedicine">Previous Medicines:</label>
+                    <input type="text" id="previousMedicine" name="previousMedicine[]" required>
+                    <input type="number" id="previousMedicineDuration" name="previousMedicineDuration[]" min="1" placeholder="Duration (in weeks)">
+                </div>
+                <button type="button" onclick="addMedicineField('medicineHistoryFields')" style="margin-top: 10px;">Add Another Previous Medicine</button>
+            </div>
+
+            <label for="allergies" style="margin-top: 20px;">Allergies:</label>
+            <div id="allergiesFields">
+                <div>
+                    <label for="allergy1">Allergy 1:</label>
+                    <input type="text" id="allergy1" name="allergies[]" required>
+                </div>
+            </div>
+            <button type="button" onclick="addAllergyField()">Add Another Allergy</button>
+
+            <label for="diseaseHistory" style="margin-top: 20px;">Disease History:</label>
+            <div id="diseaseHistoryFields">
+                <div>
+                    <label for="diseaseName">Disease Name:</label>
+                    <select id="diseaseName" name="diseaseName">
+                        <option value="">Select Disease</option>
+                        <option value="heart disease">Heart Disease</option>
+                        <option value="diabetes">Diabetes</option>
+                        <option value="hypertension">Hypertension</option>
+                        <option value="asthma">Asthma</option>
+                        <option value="arthritis">Arthritis</option>
+                        <option value="cancer">Cancer</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <input type="text" id="customDiseaseName" name="customDiseaseName" placeholder="Custom Disease Name">
+                    <input type="number" id="diseaseDuration" name="diseaseDuration" min="1" placeholder="Duration (in months)">
+                    <input type="number" id="diseaseYear" name="diseaseYear" min="1900" placeholder="Year of Occurrence">
+                </div>
+            </div>
+            <button type="button" onclick="addDiseaseField()">Add Another Disease</button>
+        </fieldset>
+
+        <fieldset class="fieldset-container">
+            <legend>Additional Information</legend>
+            <label for="medicalTreatments">Previous Medical Treatments:</label>
+            <textarea id="medicalTreatments" name="medicalTreatments" rows="4" placeholder="Enter previous medical treatments and surgeries undergone"></textarea>
+
+            <label for="previousDoctorComments">Previous Doctor Comments:</label>
+            <textarea id="previousDoctorComments" name="previousDoctorComments" rows="4" placeholder="Enter previous doctor comments"></textarea>
+
+            <label for="diagnosis">Diagnosis:</label>
+            <textarea id="diagnosis" name="diagnosis" rows="4" placeholder="Enter diagnosis"></textarea>
+
+            <label for="permanentIllness">Permanent Illness or Diseases:</label>
+            <textarea id="permanentIllness" name="permanentIllness" rows="4" placeholder="Enter any permanent illness or diseases"></textarea>
+        </fieldset>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+    function addMedicineField(containerId) {
+        const container = document.getElementById(containerId);
+        const div = document.createElement('div');
+        div.innerHTML = `
+            <label for="medicine">Medicine:</label>
+            <input type="text" id="medicine" name="medicine[]" required>
+            <input type="number" id="medicineDuration" name="medicineDuration[]" min="1" placeholder="Duration (in months)">
+            <button type="button" class="remove" onclick="removeField(this)">Remove</button>
+        `;
+        container.appendChild(div);
+    }
+
+    function addAllergyField() {
+        const allergiesFields = document.getElementById('allergiesFields');
+        const div = document.createElement('div');
+        const count = allergiesFields.children.length + 1;
+        div.innerHTML = `
+            <label for="allergy${count}">Allergy ${count}:</label>
+            <input type="text" id="allergy${count}" name="allergies[]" required>
+            <button type="button" class="remove" onclick="removeField(this)">Remove</button>
+        `;
+        allergiesFields.appendChild(div);
+    }
+
+    function addDiseaseField() {
+        const diseaseField = document.createElement('div');
+        diseaseField.innerHTML = `
+            <select id="diseaseName" name="diseaseName">
+                <option value="">Select Disease</option>
+                <option value="heart disease">Heart Disease</option>
+                <option value="diabetes">Diabetes</option>
+                <option value="hypertension">Hypertension</option>
+                <option value="asthma">Asthma</option>
+                <option value="arthritis">Arthritis</option>
+                <option value="cancer">Cancer</option>
+                <option value="other">Other</option>
+            </select>
+            <input type="text" id="customDiseaseName" name="customDiseaseName" placeholder="Custom Disease Name">
+            <input type="number" id="diseaseDuration" name="diseaseDuration" min="1" placeholder="Duration (in years)">
+            <input type="number" id="diseaseYear" name="diseaseYear" min="1900" placeholder="Year of Occurrence">
+            <button type="button" class="remove" onclick="removeField(this)">Remove</button>
+        `;
+        document.getElementById('diseaseHistoryFields').appendChild(diseaseField);
+    }
+
+    function removeField(button) {
+        button.parentElement.remove();
+    }
+</script>
+
+</body>
+</html>
+
+
+

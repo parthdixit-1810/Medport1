@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointment Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 80%;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #2517ea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .doctor-card {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        .doctor-card:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .doctor-image {
+            max-width: 100px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+        .doctor-info {
+            flex-grow: 1;
+        }
+        .doctor-info h3 {
+            margin: 0 0 10px;
+            color: #333;
+        }
+        .doctor-info p {
+            margin: 5px 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="font-size: 40px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: 500; font-style: bold;">Book an Appointment</h1>
+        <form action="payment.php" method="post">
+            <div class="form-group">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="issue">Brief about your issue:</label>
+                <textarea id="issue" name="issue" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="date">Preferred Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Preferred Time Slot:</label>
+                <select id="time" name="time" required>
+                    <option value="">Select Time Slot...</option>
+                    <option value="10:00 AM - 10:30 AM">10:00 AM - 10:30 AM</option>
+                    <option value="10:30 AM - 11:00 AM">10:30 AM - 11:00 AM</option>
+                    <option value="11:00 AM - 11:30 AM">11:00 AM - 11:30 AM</option>
+                    <option value="11:30 AM - 12:00 PM">11:30 AM - 12:00 PM</option>
+                    <option value="4:00 PM - 4:30 PM">4:00 PM - 4:30 PM</option>
+                    <option value="4:30 PM - 5:00 PM">4:30 PM - 5:00 PM</option>
+                    <option value="5:00 PM - 5:30 PM">5:00 PM - 5:30 PM</option>
+                    <option value="5:30 PM - 6:00 PM">5:30 PM - 6:00 PM</option>
+                    <option value="6:00 PM - 6:30 PM">6:00 PM - 6:30 PM</option>
+                    <option value="6:30 PM - 7:00 PM">6:30 PM - 7:00 PM</option>
+                    <option value="7:00 PM - 7:30 PM">7:00 PM - 7:30 PM</option>
+                    <option value="7:30 PM - 8:00 PM">7:30 PM - 8:00 PM</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="field">Field of Problem:</label>
+                <select id="field" name="field" required>
+                    <option value="">Select Field...</option>
+                    <option value="Cardiology">Cardiology</option>
+                    <option value="Dermatology">Dermatology</option>
+                    <option value="Orthopedics">Orthopedics</option>
+                </select>
+            </div>
+            <div class="form-group" id="doctorOptions" style="display: none;">
+                <label for="doctor">Select Doctor:</label>
+                <div id="doctorList"></div>
+            </div>
+            <input type="submit" value="Proceed to Payment">
+        </form>
+    </div>
+
+    <script>
+        const doctorData = {
+            Cardiology: [
+                { name: "Dr. Anand", image: "Pasted Graphic 27.png", credentials: "MD, Cardiologist", location: "Mumbai", fee: "₹500" },
+                { name: "Dr. Krishnan", image: "pasted graphic 28.png", credentials: "MD, Cardiologist", location: "Delhi", fee: "₹600" }
+            ],
+            Dermatology: [
+                { name: "Dr. Patel", image: "pasted graphic 29.png", credentials: "MD, Dermatologist", location: "Bangalore", fee: "₹400" },
+                { name: "Dr. Dixit", image: "pasted graphic 30.png", credentials: "MD, Dermatologist", location: "Kolkata", fee: "₹450" }
+            ],
+            Orthopedics: [
+                { name: "Dr. Singh", image: "pasted graphic 31.png", credentials: "MD, Orthopedic Surgeon", location: "Chennai", fee: "₹550" },
+                { name: "Dr. Dhawan", image: "pasted graphic 32.png", credentials: "MD, Orthopedic Surgeon", location: "Hyderabad", fee: "₹500" }
+            ]
+        };
+
+        const fieldSelect = document.getElementById('field');
+        const doctorOptions = document.getElementById('doctorOptions');
+        const doctorList = document.getElementById('doctorList');
+
+        function populateDoctors() {
+            const selectedField = fieldSelect.value;
+            if (selectedField !== '') {
+                doctorOptions.style.display = 'block';
+                doctorList.innerHTML = '';
+                doctorData[selectedField].forEach(doctor => {
+                    const doctorCard = document.createElement('div');
+                    doctorCard.classList.add('doctor-card');
+
+                    const doctorImage = document.createElement('img');
+                    doctorImage.src = doctor.image; 
+                    doctorImage.alt = doctor.name; 
+                    doctorImage.classList.add('doctor-image');
+                    doctorCard.appendChild(doctorImage);
+
+                    const doctorInfo = document.createElement('div');
+                    doctorInfo.classList.add('doctor-info');
+
+                    const doctorName = document.createElement('h3');
+                    doctorName.textContent = doctor.name;
+                    doctorInfo.appendChild(doctorName);
+
+                    const credentials = document.createElement('p');
+                    credentials.textContent = "Credentials: " + doctor.credentials;
+                    doctorInfo.appendChild(credentials);
+
+                    const location = document.createElement('p');
+                    location.textContent = "Location: " + doctor.location;
+                    doctorInfo.appendChild(location);
+
+                    const fee = document.createElement('p');
+                    fee.textContent = "Fee: " + doctor.fee;
+                    doctorInfo.appendChild(fee);
+
+                    const selectButton = document.createElement('button');
+                    selectButton.textContent = "Select";
+                    selectButton.addEventListener('click', () => {
+                       
+                        alert("You've selected " + doctor.name);
+                    });
+                    doctorInfo.appendChild(selectButton);
+
+                    doctorCard.appendChild(doctorInfo);
+                    doctorList.appendChild(doctorCard);
+                });
+            } else {
+                doctorOptions.style.display = 'none';
+            }
+        }
+
+        fieldSelect.addEventListener('change', populateDoctors);
+    </script>
+</body>
+</html>
+
