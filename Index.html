@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        body, html {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%; /* Set height to 100% */
+        }
+        body {
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/back_our/20190625/ourmid/pngtree-biological-virus-medical-safety-banner-image_261102.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+}
+
+/* Adjust background for smaller screens */
+@media only screen and (max-width: 600px) {
+    body {
+        background-size: 100% 100%; /* Cover the entire screen */
+    }
+}
+
+
+/* Adjust background for smaller screens */
+@media only screen and (max-width: 600px) {
+    body {
+        background-size: contain;
+        background-attachment: fixed;
+    }
+}
+
+
+        .container {
+            margin: 0 auto;
+            max-width: 2000px;
+            padding: 0 0px;
+        }
+
+        header {
+            background-color: rgba(52, 152, 219, 0.7); /* Updated background color with transparency */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 58px;
+            margin: 0;
+            font-style: initial;
+            font-weight: 400;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        header img {
+            height: 80px; /* Adjust the height as per your logo size */
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .login-signup {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 18px;
+        }
+
+        nav {
+            background-color: rgba(41, 128, 185, 0.7); /* Updated background color with transparency */
+            padding: 4px 8px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px; 
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            position: relative; 
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 300px;
+            margin-right: 10px;
+        }
+
+        .search-container button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #081170;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .search-container button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: calc(100% + 10px); 
+            left: 0;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 300px;
+            z-index: 1;
+            display: none; 
+            max-height: 200px;
+            overflow-y: auto; 
+        }
+
+        .dropdown-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .dropdown-item:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display: block; 
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="./PHOTO-2024-02-23-13-56-43.jpg" alt="MedPort Logo">
+        <h1>MedPort</h1>
+        <div class="login-signup">
+            <a href="./i.html" style="color: black">Login</a> / <a href="./Index.html" style="color: black">Sign Up</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav>
+            <a href="#"><h2>Home</h2></a>
+            <a href="./appointment.html"><h2>Appointment</h2></a>
+            <a href="./history.html"><h2>History</h2></a>
+            <a href="./cata.html"><h2>Online Medicine</h2></a>
+            <a href="./CHAT.html"><h2>Chat With Us</h2></a>
+            <a href="./sos.html"><h2>Emergency Call</h2></a>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button id="searchBtn">Search</button>
+                <div class="dropdown" id="searchDropdown"></div> 
+            </div>
+        </nav>
+        <div class="white-background">
+            <div class="hero-section">
+                <!-- Removed the image from the hero section since it's now a background image -->
+                <div class="about-us" style="margin-bottom: 0px;padding-bottom: 0px;">
+                    <h3 style="font-size: 50px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">ABOUT US</h3>
+                    <p style="font-size: 30px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style: italic;">  We are a globally and remotely accessible healthcare platform and medical history repository.</p>
+                    <p style="font-size: 30px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style: italic;">  The aim is to provide a complete end-to-end solution to your medical problems.</p>
+                    <p style="font-size: 30px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style: italic;">  Including medical checkup appointments, buying medicines online as well as accessing your medical history.</p>
+                    <p style="font-size: 30px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style: italic;">  The platform allows you to have a better and easier medical experience. </p>
+                </div>
+            </div>
+            <div id="medico-heading">
+                <h2 style="font-style: wavy;">Medico-Assistant</h2>
+            </div>
+        </div>
+        <div id="chatbot">
+            <div id="chat-container"></div>
+            <div id="user-input-container">
+                <input type="text" id="user-input" placeholder="Type your message..." style="width: 300px;height: 30px;">
+                <button id="send-btn" style="font-size: 20px;background-color: #007bff;">Send</button> 
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const diseases = [
+            { name: "Common Cold", symptoms: ["Runny nose", "Sneezing", "Cough", "Sore throat"] },
+            { name: "Flu", symptoms: ["Fever", "Chills", "Muscle aches", "Fatigue"] },
+            { name: "COVID-19", symptoms: ["Fever", "Dry cough", "Shortness of breath", "Fatigue"] },
+            { name: "Asthma", symptoms: ["Shortness of breath", "Wheezing", "Coughing", "Chest tightness"] },
+            { name: "Diabetes", symptoms: ["Frequent urination", "Increased thirst", "Extreme hunger", "Fatigue", "Blurry vision"] },
+            { name: "Hypertension", symptoms: ["Headache", "Shortness of breath", "Nosebleeds", "Chest pain", "Fatigue"] },
+            { name: "Migraine", symptoms: ["Intense headache", "Nausea", "Vomiting", "Sensitivity to light and sound"] },
+            { name: "Pneumonia", symptoms: ["Fever", "Chills", "Cough", "Shortness of breath", "Chest pain"] },
+            { name: "Arthritis", symptoms: ["Joint pain", "Swelling", "Stiffness", "Decreased range of motion"] },
+            { name: "Anxiety", symptoms: ["Nervousness", "Restlessness", "Increased heart rate", "Difficulty concentrating"] },
+            { name: "Depression", symptoms: ["Sadness", "Loss of interest or pleasure", "Changes in appetite", "Trouble sleeping"] },
+            { name: "Osteoporosis", symptoms: ["Back pain", "Loss of height over time", "Bone fractures", "Stooped posture"] },
+            { name: "Eczema", symptoms: ["Itchy skin", "Dry skin", "Red or brownish patches", "Small raised bumps"] },
+            { name: "Psoriasis", symptoms: ["Red patches of skin", "Thickened, pitted, or ridged nails", "Itching", "Burning or soreness"] },
+            { name: "Acne", symptoms: ["Pimples", "Whiteheads", "Blackheads", "Inflamed red bumps"] },
+            { name: "Gastroenteritis", symptoms: ["Nausea", "Vomiting", "Diarrhea", "Stomach cramps"] },
+            { name: "Urinary Tract Infection (UTI)", symptoms: ["Pain or burning sensation during urination", "Frequent urination", "Cloudy or strong-smelling urine", "Pelvic pain in women"] },
+            { name: "Gout", symptoms: ["Intense joint pain", "Lingering discomfort", "Inflammation and redness", "Limited range of motion"] },
+            { name: "Glaucoma", symptoms: ["Blurred vision", "Severe eye pain", "Headache", "Nausea or vomiting"] },
+            { name: "Cataracts", symptoms: ["Clouded, blurred, or dim vision", "Sensitivity to light and glare", "Fading or yellowing of colors"] },
+            { name: "Dengue Fever", symptoms: ["High fever", "Severe headache", "Pain behind the eyes", "Joint and muscle pain", "Nausea and vomiting"] },
+            { name: "Malaria", symptoms: ["Fever", "Chills", "Headache", "Nausea and vomiting", "Muscle pain and fatigue"] },
+            
+        ];
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInput = document.getElementById("searchInput");
+            const searchBtn = document.getElementById("searchBtn");
+            const searchDropdown = document.getElementById("searchDropdown");
+            const chatContainer = document.getElementById("chat-container");
+            const userInput = document.getElementById("user-input");
+            const sendBtn = document.getElementById("send-btn");
+
+            function addMessage(message, sender) {
+                const messageElement = document.createElement("div");
+                messageElement.textContent = message;
+                messageElement.classList.add("message", sender);
+                chatContainer.appendChild(messageElement);
+                chatContainer.scrollTop = chatContainer.scrollHeight; 
+            }
+
+            function searchDisease() {
+                const query = searchInput.value.trim().toLowerCase();
+                if (query === "") {
+                    searchDropdown.classList.remove("show"); 
+                    return;
+                }
+
+                let found = false;
+                searchDropdown.innerHTML = "";
+                diseases.forEach(disease => {
+                    if (disease.name.toLowerCase().includes(query) || disease.symptoms.some(symptom => symptom.toLowerCase().includes(query))) {
+                        found = true;
+                        const dropdownItem = document.createElement("div");
+                        dropdownItem.textContent = `${disease.name}: Symptoms - ${disease.symptoms.join(", ")}`;
+                        dropdownItem.classList.add("dropdown-item");
+                        searchDropdown.appendChild(dropdownItem);
+                    }
+                });
+
+                if (found) {
+                    searchDropdown.classList.add("show"); 
+                } else {
+                    searchDropdown.classList.remove("show"); 
+                }
+            }
+
+            function sendMessage() {
+                const message = userInput.value.trim();
+                if (message === "") return;
+
+                addMessage(message, "user");
+                userInput.value = "";
+
+                setTimeout(() => {
+                    addMessage("BOT RESPONSE.", "bot");
+                }, 500);
+            }
+
+            searchBtn.addEventListener("click", searchDisease);
+
+            searchInput.addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    searchDisease();
+                }
+            });
+
+            document.addEventListener("click", function(event) {
+                if (!event.target.matches("#searchInput")) {
+                    searchDropdown.classList.remove("show");
+                }
+            });
+
+            searchDropdown.addEventListener("click", function(event) {
+                if (event.target.classList.contains("dropdown-item")) {
+                    const selectedItemText = event.target.textContent;
+                    addMessage(selectedItemText, "bot");
+                    searchInput.value = ""; 
+                    searchDropdown.classList.remove("show"); 
+                }
+            });
+
+            sendBtn.addEventListener("click", sendMessage);
+
+            userInput.addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    sendMessage();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
