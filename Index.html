@@ -12,12 +12,9 @@
             height: 100%; /* Set height to 100% */
         }
         body {
-    background-image: url('https://png.pngtree.com/thumb_back/fh260/back_our/20190625/ourmid/pngtree-biological-virus-medical-safety-banner-image_261102.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0; /* Remove default body margin */
-    padding: 0; /* Remove default body padding */
+            background-color: #e5e5f7;
+opacity: 0.8;
+background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #99e2f8 10px ), repeating-linear-gradient( #00102255, #004882 );
 }
 
 /* Adjust background for smaller screens */
@@ -182,25 +179,19 @@
             <div class="hero-section">
                 <!-- Removed the image from the hero section since it's now a background image -->
                 <div class="about-us" style="margin-bottom: 0px;padding-bottom: 0px;">
-                    <h3 style="font-size: 50px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">ABOUT US</h3>
-                    <p style="font-size: 30px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style: italic;">  We are a globally and remotely accessible healthcare platform and medical history repository.</p>
-                    <p style="font-size: 30px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style: italic;">  The aim is to provide a complete end-to-end solution to your medical problems.</p>
-                    <p style="font-size: 30px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style: italic;">  Including medical checkup appointments, buying medicines online as well as accessing your medical history.</p>
-                    <p style="font-size: 30px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style: italic;">  The platform allows you to have a better and easier medical experience. </p>
+                    <h3 style="font-size: 40px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">ABOUT US</h3>
+                    <p style="font-size: 20px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style: italic;">  Welcome to MedPort, your trusted online destination for all things medical. Whether you're seeking reliable information on diseases, booking appointments with healthcare providers, or looking for expert advice on staying healthy, we're here to help.</p>
+                    <p style="font-size: 20px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style: italic;">  At MedPort, we're dedicated to providing you with accurate and up-to-date information on a wide range of health topics. Our platform features comprehensive articles, videos, and resources curated by medical professionals, ensuring that you have access to the knowledge you need to make informed decisions about your health.
+                    </p>
+                    <p style="font-size: 20px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style: italic;"> In addition to information, we offer convenient appointment booking services, allowing you to schedule appointments with healthcare providers in your area effortlessly. With just a few clicks, you can find available slots, select your preferred specialist, and confirm your appointment – all from the comfort of your home.</p>
+                    <p style="font-size: 20px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style: italic;">  But that's not all – our platform also offers online consultations, connecting you with qualified healthcare professionals for personalized medical advice and guidance. Whether you have questions about a specific condition or need assistance managing your health, our team of experts is here to support you every step of the way. </p>
+                    <p style="font-size: 20px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style: italic;">  And if you're looking for tips and advice on leading a healthier lifestyle, you'll find plenty of resources here too. From nutrition and exercise tips to stress management techniques and more, we're committed to helping you achieve your wellness goals. </p>
+                    <p style="font-size: 20px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style: italic;">  So whether you're looking to learn more about a particular disease, book an appointment with a healthcare provider, or simply take steps to improve your overall health and well-being, MedPort is your one-stop shop for all things medical.
+
+                        Welcome aboard – we're glad you're here! </p>
                 </div>
             </div>
-            <div id="medico-heading">
-                <h2 style="font-style: wavy;">Medico-Assistant</h2>
-            </div>
         </div>
-        <div id="chatbot">
-            <div id="chat-container"></div>
-            <div id="user-input-container">
-                <input type="text" id="user-input" placeholder="Type your message..." style="width: 300px;height: 30px;">
-                <button id="send-btn" style="font-size: 20px;background-color: #007bff;">Send</button> 
-            </div>
-        </div>
-    </div>
 
     <script>
         const diseases = [
