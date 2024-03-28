@@ -5,34 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <style>
+        @media screen and (orientation: portrait) { 
+            body {
+                transform: rotate(0deg);
+                width: 100vw;
+                height: 100vh;
+                overflow: auto;
+                position: absolute;
+            }
+        }
+
         body, html {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            height: 100%; /* Set height to 100% */
+            height: 100%; 
         }
+
         body {
             background-color: #e5e5f7;
-opacity: 0.8;
-background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #99e2f8 10px ), repeating-linear-gradient( #00102255, #004882 );
-}
+            opacity: 0.8;
+            background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #99e2f8 10px ), repeating-linear-gradient( #00102255, #004882 );
+        }
 
-/* Adjust background for smaller screens */
-@media only screen and (max-width: 600px) {
-    body {
-        background-size: 100% 100%; /* Cover the entire screen */
-    }
-}
-
-
-/* Adjust background for smaller screens */
-@media only screen and (max-width: 600px) {
-    body {
-        background-size: contain;
-        background-attachment: fixed;
-    }
-}
-
+        
+        @media only screen and (max-width: 600px) {
+            body {
+                background-size: 100% 100%; 
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            body {
+                background-size: contain;
+                background-attachment: fixed;
+            }
+        }
 
         .container {
             margin: 0 auto;
@@ -41,7 +48,7 @@ background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #99e
         }
 
         header {
-            background-color: rgba(52, 152, 219, 0.7); /* Updated background color with transparency */
+            background-color: rgba(52, 152, 219, 0.7);
             color: #fff;
             padding: 20px 0;
             text-align: center;
@@ -59,7 +66,7 @@ background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #99e
         }
 
         header img {
-            height: 80px; /* Adjust the height as per your logo size */
+            height: 80px; 
             margin-right: 10px;
             display: inline-block;
             vertical-align: middle;
@@ -75,7 +82,7 @@ background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #99e
         }
 
         nav {
-            background-color: rgba(41, 128, 185, 0.7); /* Updated background color with transparency */
+            background-color: rgba(41, 128, 185, 0.7); 
             padding: 4px 8px;
             text-align: center;
             display: flex;
@@ -149,7 +156,6 @@ background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #99e
         .show {
             display: block; 
         }
-
     </style>
 </head>
 <body>
@@ -177,7 +183,7 @@ background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #99e
         </nav>
         <div class="white-background">
             <div class="hero-section">
-                <!-- Removed the image from the hero section since it's now a background image -->
+               
                 <div class="about-us" style="margin-bottom: 0px;padding-bottom: 0px;">
                     <h3 style="font-size: 40px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">ABOUT US</h3>
                     <p style="font-size: 20px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style: italic;">  Welcome to MedPort, your trusted online destination for all things medical. Whether you're seeking reliable information on diseases, booking appointments with healthcare providers, or looking for expert advice on staying healthy, we're here to help.</p>
@@ -192,6 +198,7 @@ background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #99e
                 </div>
             </div>
         </div>
+    </div>
 
     <script>
         const diseases = [
@@ -217,7 +224,6 @@ background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #99e
             { name: "Cataracts", symptoms: ["Clouded, blurred, or dim vision", "Sensitivity to light and glare", "Fading or yellowing of colors"] },
             { name: "Dengue Fever", symptoms: ["High fever", "Severe headache", "Pain behind the eyes", "Joint and muscle pain", "Nausea and vomiting"] },
             { name: "Malaria", symptoms: ["Fever", "Chills", "Headache", "Nausea and vomiting", "Muscle pain and fatigue"] },
-            
         ];
 
         document.addEventListener("DOMContentLoaded", function() {
@@ -226,85 +232,58 @@ background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #99e
             const searchDropdown = document.getElementById("searchDropdown");
             const chatContainer = document.getElementById("chat-container");
             const userInput = document.getElementById("user-input");
-            const sendBtn = document.getElementById("send-btn");
+            const chatHistory = document.getElementById("chat-history");
 
-            function addMessage(message, sender) {
-                const messageElement = document.createElement("div");
-                messageElement.textContent = message;
-                messageElement.classList.add("message", sender);
-                chatContainer.appendChild(messageElement);
-                chatContainer.scrollTop = chatContainer.scrollHeight; 
+            
+            function filterDiseases(input) {
+                const filteredDiseases = diseases.filter(disease =>
+                    disease.name.toLowerCase().includes(input.toLowerCase())
+                );
+                return filteredDiseases;
             }
 
-            function searchDisease() {
-                const query = searchInput.value.trim().toLowerCase();
-                if (query === "") {
-                    searchDropdown.classList.remove("show"); 
-                    return;
-                }
-
-                let found = false;
+           
+            function displayResults(results) {
                 searchDropdown.innerHTML = "";
-                diseases.forEach(disease => {
-                    if (disease.name.toLowerCase().includes(query) || disease.symptoms.some(symptom => symptom.toLowerCase().includes(query))) {
-                        found = true;
-                        const dropdownItem = document.createElement("div");
-                        dropdownItem.textContent = `${disease.name}: Symptoms - ${disease.symptoms.join(", ")}`;
-                        dropdownItem.classList.add("dropdown-item");
-                        searchDropdown.appendChild(dropdownItem);
-                    }
-                });
-
-                if (found) {
-                    searchDropdown.classList.add("show"); 
+                if (results.length === 0) {
+                    const noResultItem = document.createElement("div");
+                    noResultItem.textContent = "No matching results found";
+                    searchDropdown.appendChild(noResultItem);
                 } else {
-                    searchDropdown.classList.remove("show"); 
+                    results.forEach(result => {
+                        const resultItem = document.createElement("div");
+                        resultItem.classList.add("dropdown-item");
+                        resultItem.textContent = result.name;
+                        resultItem.addEventListener("click", () => {
+                            searchInput.value = result.name;
+                            searchDropdown.classList.remove("show");
+                        });
+                        searchDropdown.appendChild(resultItem);
+                    });
                 }
+                searchDropdown.classList.add("show");
             }
 
-            function sendMessage() {
-                const message = userInput.value.trim();
-                if (message === "") return;
-
-                addMessage(message, "user");
-                userInput.value = "";
-
-                setTimeout(() => {
-                    addMessage("BOT RESPONSE.", "bot");
-                }, 500);
-            }
-
-            searchBtn.addEventListener("click", searchDisease);
-
-            searchInput.addEventListener("keypress", function(event) {
-                if (event.key === "Enter") {
-                    searchDisease();
-                }
+            /
+            searchInput.addEventListener("input", function() {
+                const input = this.value;
+                const filteredDiseases = filterDiseases(input);
+                displayResults(filteredDiseases);
             });
 
-            document.addEventListener("click", function(event) {
-                if (!event.target.matches("#searchInput")) {
+            searchBtn.addEventListener("click", function() {
+                const input = searchInput.value;
+                const filteredDiseases = filterDiseases(input);
+                displayResults(filteredDiseases);
+            });
+
+            document.addEventListener("click", function(e) {
+                if (!e.target.matches("#searchInput")) {
                     searchDropdown.classList.remove("show");
-                }
-            });
-
-            searchDropdown.addEventListener("click", function(event) {
-                if (event.target.classList.contains("dropdown-item")) {
-                    const selectedItemText = event.target.textContent;
-                    addMessage(selectedItemText, "bot");
-                    searchInput.value = ""; 
-                    searchDropdown.classList.remove("show"); 
-                }
-            });
-
-            sendBtn.addEventListener("click", sendMessage);
-
-            userInput.addEventListener("keypress", function(event) {
-                if (event.key === "Enter") {
-                    sendMessage();
                 }
             });
         });
     </script>
 </body>
 </html>
+
